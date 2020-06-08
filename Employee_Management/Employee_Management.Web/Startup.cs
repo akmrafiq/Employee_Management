@@ -12,6 +12,9 @@ using Employee_Management.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Autofac;
+using Employee_Management.Core.Contexts;
+using Employee_Management.Core;
 
 namespace Employee_Management.Web
 {
@@ -23,14 +26,32 @@ namespace Employee_Management.Web
         }
 
         public IConfiguration Configuration { get; }
+        public static ILifetimeScope AutofacContainer { get; private set; }
 
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            var connectionStringName = "DefaultConnection";
+            var connectionString = Configuration.GetConnectionString(connectionStringName);
+            var migrationAssemblyName = typeof(Startup).Assembly.FullName;
+
+            builder.RegisterModule(new CoreModule(connectionString, migrationAssemblyName));
+
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+
+            var connectionStringName = "DefaultConnection";
+            var connectionString = Configuration.GetConnectionString(connectionStringName);
+            var migrationAssemblyName = typeof(Startup).Assembly.FullName;
+
+            services.AddDbContext<EmployeeContext>(options =>
+                options.UseSqlServer(connectionString, e => e.MigrationsAssembly(migrationAssemblyName)));
+
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();

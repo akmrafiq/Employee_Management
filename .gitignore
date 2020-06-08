@@ -5,3 +5,9 @@
 /Employee_Management/.vs/Employee_Management/v16
 /Employee_Management/Employee_Management.Web/obj
 /Employee_Management/Employee_Management.Web/bin/Debug/netcoreapp3.1
+/Employee_Management/Employee_Management.Core/bin/Debug/netcoreapp3.1
+/Employee_Management/Employee_Management.Core/obj
+/Employee_Management/Employee_Management.Data/bin/Debug/netcoreapp3.1
+/Employee_Management/Employee_Management.Data/obj/Debug/netcoreapp3.1
+/Employee_Management/Employee_Management.Data/obj
+/Employee_Management/.vs/Employee_Management/config
