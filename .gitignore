@@ -3,3 +3,5 @@
 ################################################################################
 
 /Employee_Management/.vs/Employee_Management/v16
+/Employee_Management/Employee_Management.Web/obj
+/Employee_Management/Employee_Management.Web/bin/Debug/netcoreapp3.1
