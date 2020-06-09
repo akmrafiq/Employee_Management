@@ -8,6 +8,6 @@ namespace Employee_Management.Core.Contexts
 {
     public interface IEmployeeContext
     {
-        DbSet<Employee> Employees { get; set; }
+        DbSet<ParmanenetEmployee> ParmanenetEmployees { get; set; }
     }
 }

@@ -33,10 +33,10 @@ namespace Employee_Management.Core
                    .InstancePerLifetimeScope();
 
        
-            builder.RegisterType<EmployeeRepository>().As<IEmployeeRepository>()
+            builder.RegisterType<ParmanentEmployeeRepository>().As<IParmanentEmployeeRepository>()
                 .InstancePerLifetimeScope();
 
-            builder.RegisterType<EmployeeService>().As<IEmployeeService>()
+            builder.RegisterType<ParmanentEmployeeService>().As<IParmanentEmployeeService>()
                 .InstancePerLifetimeScope();
                        
             base.Load(builder);

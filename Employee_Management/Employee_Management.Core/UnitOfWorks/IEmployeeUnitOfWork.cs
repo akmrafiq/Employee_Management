@@ -7,8 +7,8 @@ using System.Text;
 
 namespace Employee_Management.Core.UnitOfWorks
 {
-    interface IEmployeeUnitOfWork:IUnitOfWork<EmployeeContext>
+    public interface IEmployeeUnitOfWork:IUnitOfWork<EmployeeContext>
     {
-        IEmployeeRepository EmployeeRepository { get; set; }
+        IParmanentEmployeeRepository ParmanentEmployeeRepository { get; set; }
     }
 }

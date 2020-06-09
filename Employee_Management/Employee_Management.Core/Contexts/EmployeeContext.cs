@@ -28,6 +28,6 @@ namespace Employee_Management.Core.Contexts
 
             base.OnConfiguring(dbContextOptionsBuilder);
         }
-        public DbSet<Employee> Employees { get; set ; }
+        public DbSet<ParmanenetEmployee> ParmanenetEmployees { get; set ; }
     }
 }

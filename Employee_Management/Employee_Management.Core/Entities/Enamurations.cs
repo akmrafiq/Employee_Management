@@ -11,5 +11,11 @@ namespace Employee_Management.Core.Entities
             Male=1,
             Female
         };
+
+        public enum PaymentType
+        {
+            BankTransfer,
+            Cheque
+        }
     }
 }

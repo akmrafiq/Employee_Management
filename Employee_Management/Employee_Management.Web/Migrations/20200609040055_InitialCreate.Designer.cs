@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Employee_Management.Web.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    [Migration("20200608101930_InitialCreate")]
+    [Migration("20200609040055_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace Employee_Management.Web.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Employee_Management.Core.Entities.Employee", b =>
+            modelBuilder.Entity("Employee_Management.Core.Entities.ParmanenetEmployee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,9 +55,12 @@ namespace Employee_Management.Web.Migrations
                     b.Property<DateTime>("NextReviewDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("PaymentType")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("ParmanenetEmployees");
                 });
 #pragma warning restore 612, 618
         }

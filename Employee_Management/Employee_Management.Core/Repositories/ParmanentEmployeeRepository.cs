@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Employee_Management.Core.Repositories
 {
-    public class EmployeeRepository:Repository<Employee>,IEmployeeRepository
+    public class ParmanentEmployeeRepository:Repository<ParmanenetEmployee>,IParmanentEmployeeRepository
     {
-        public EmployeeRepository(DbContext dbContext) : base(dbContext)
+        public ParmanentEmployeeRepository(DbContext dbContext) : base(dbContext)
         {
 
         }

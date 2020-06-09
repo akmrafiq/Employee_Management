@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Employee_Management.Core.Repositories
 {
-    public interface IEmployeeRepository:IRepository<Employee>
+    public interface IParmanentEmployeeRepository:IRepository<ParmanenetEmployee>
     {
 
     }

@@ -9,12 +9,12 @@ namespace Employee_Management.Core.UnitOfWorks
 {
     public class EmployeeUnitOfWork :UnitOfWork<EmployeeContext>, IEmployeeUnitOfWork
     {
-        public IEmployeeRepository EmployeeRepository { get; set; }
+        public IParmanentEmployeeRepository ParmanentEmployeeRepository { get; set; }
 
         public EmployeeUnitOfWork(string connectionString, string migrationAssemblyName)
              : base(connectionString, migrationAssemblyName)
         {
-            EmployeeRepository = new EmployeeRepository(_dbContext);
+            ParmanentEmployeeRepository = new ParmanentEmployeeRepository(_dbContext);
         }
     }
 }

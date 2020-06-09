@@ -8,7 +8,7 @@ namespace Employee_Management.Web.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Employees",
+                name: "ParmanenetEmployees",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -21,18 +21,19 @@ namespace Employee_Management.Web.Migrations
                     Department = table.Column<string>(nullable: true),
                     JoinDate = table.Column<DateTime>(nullable: false),
                     CurrentSalary = table.Column<decimal>(nullable: false),
-                    NextReviewDate = table.Column<DateTime>(nullable: false)
+                    NextReviewDate = table.Column<DateTime>(nullable: false),
+                    PaymentType = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees", x => x.Id);
+                    table.PrimaryKey("PK_ParmanenetEmployees", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "ParmanenetEmployees");
         }
     }
 }
