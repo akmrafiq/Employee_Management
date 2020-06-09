@@ -12,14 +12,14 @@ namespace Employee_Management.Web.Areas.Admin.Models
     {
         private IParmanentEmployeeService _parmanentEmployeeService;
 
-        public ParmanentEmployeeViewModel()
-        {
-            _parmanentEmployeeService = Startup.AutofacContainer.Resolve<IParmanentEmployeeService>();
-        }
-
         public ParmanentEmployeeViewModel(IParmanentEmployeeService parmanentEmployeeService)
         {
             _parmanentEmployeeService = parmanentEmployeeService;
+        }
+
+        public ParmanentEmployeeViewModel()
+        {
+            _parmanentEmployeeService = Startup.AutofacContainer.Resolve<IParmanentEmployeeService>();
         }
 
         public object GetEmployees(DataTablesAjaxRequestModel tableModel)

@@ -28,16 +28,16 @@ namespace Employee_Management.Web.Areas.Admin.Models
         private IParmanentEmployeeService _parmanentEmployeeService;
         private readonly ILogger<ParmanentEmployeeUpdateModel> _logger;
 
-        public ParmanentEmployeeUpdateModel()
-        {
-            _parmanentEmployeeService = Startup.AutofacContainer.Resolve<IParmanentEmployeeService>();
-            _logger = Startup.AutofacContainer.Resolve<ILogger<ParmanentEmployeeUpdateModel>>();
-        }
 
         public ParmanentEmployeeUpdateModel(IParmanentEmployeeService parmanentEmployeeService, ILogger<ParmanentEmployeeUpdateModel> logger)
         {
             _parmanentEmployeeService = parmanentEmployeeService;
             _logger = logger;
+        }
+        public ParmanentEmployeeUpdateModel()
+        {
+            _parmanentEmployeeService = Startup.AutofacContainer.Resolve<IParmanentEmployeeService>();
+            _logger = Startup.AutofacContainer.Resolve<ILogger<ParmanentEmployeeUpdateModel>>();
         }
 
         public void AddNewParmanentEmployee()

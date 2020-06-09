@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Employee_Management.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ParmanentEmployeeController : Controller
     {
         private IParmanentEmployeeService _parmanentEmployeeService;
@@ -21,7 +22,7 @@ namespace Employee_Management.Web.Areas.Admin.Controllers
             var model = new ParmanentEmployeeViewModel();
             return View(model);
         }
-
+        [HttpGet]
         public IActionResult Add()
         {
             var model = new ParmanentEmployeeUpdateModel();

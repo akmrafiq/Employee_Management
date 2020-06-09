@@ -2,6 +2,7 @@
 using Employee_Management.Core.Contexts;
 using Employee_Management.Core.Repositories;
 using Employee_Management.Core.Services;
+using Employee_Management.Core.UnitOfWorks;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,12 @@ namespace Employee_Management.Core
                    .WithParameter("migrationAssemblyName", _migrationAssemblyName)
                    .InstancePerLifetimeScope();
 
-       
+            builder.RegisterType<EmployeeUnitOfWork>().As<IEmployeeUnitOfWork>()
+                  .WithParameter("connectionString", _connectionString)
+                  .WithParameter("migrationAssemblyName", _migrationAssemblyName)
+                  .InstancePerLifetimeScope();
+
+
             builder.RegisterType<ParmanentEmployeeRepository>().As<IParmanentEmployeeRepository>()
                 .InstancePerLifetimeScope();
 
