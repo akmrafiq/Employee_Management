@@ -48,12 +48,18 @@ namespace Employee_Management.Web.Areas.Admin.Models
                                 record.Department,
                                 record.JoinDate.ToShortDateString(),
                                 record.CurrentSalary.ToString(),
+                                record.PaymentType.ToString(),
                                 record.NextReviewDate.ToShortDateString(),
                                 record.Id.ToString()
                         }
                     ).ToArray()
             };
 
+        }
+
+        public void Delete(int id)
+        {
+            _parmanentEmployeeService.DeleteParmanentEmployee(id);
         }
     }
 }
