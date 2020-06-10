@@ -8,6 +8,13 @@
 {
     @await Html.PartialAsync("_Notification", Model.Notification)
 }
+@section styles
+{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+}
+
 
 <div class="container-fluid">
     <div class="row">
@@ -33,11 +40,16 @@
                         </div>
                         <div class="form-group">
                             <label for="DOB">Date Of Birth</label>
-                            <input type="text" class="form-control" name="DateOfBirth" id="DOB" placeholder="Enter Date of birth">
+                            <input type="datetime" class="form-control datePicker" name="DateOfBirth" id="DOB" placeholder="Enter Date of birth">
                         </div>
                         <div class="form-group">
                             <label for="eGender">Gender</label>
-                            <input type="text" class="form-control" name="Gender" id="eGender" placeholder="Enter Gender">
+                            <select id="eGender" name="Gender" class="form-control form-control-sm" style="width: 100%;">
+                                @foreach (var item in ViewBag.Gender)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="eDesignation">Designation</label>
@@ -49,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label for="eJoinDate">Join Date</label>
-                            <input type="datetime" class="form-control" name="JoinDate" id="eJoinDate" placeholder="Enter join date">
+                            <input type="datetime" class="form-control datePicker" name="JoinDate" id="eJoinDate" placeholder="Enter join date">
                         </div>
                         <div class="form-group">
                             <label for="eCurrentSalary">Current Salary</label>
@@ -58,7 +70,7 @@
 
                         <div class="form-group">
                             <label for="eNextReviewDate">Next Review Date</label>
-                            <input type="datetime" class="form-control" name="NextReviewDate" id="eNextReviewDate" placeholder="Enetr next review date">
+                            <input type="datetime" class="form-control datePicker" name="NextReviewDate" id="eNextReviewDate" placeholder="Enetr next review date">
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -73,4 +85,11 @@
         <!--/.col (left) -->
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $(".datePicker").datepicker();
+    });
+</script>
 

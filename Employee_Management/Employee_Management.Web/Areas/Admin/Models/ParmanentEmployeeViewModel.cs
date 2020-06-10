@@ -40,15 +40,13 @@ namespace Employee_Management.Web.Areas.Admin.Models
                 data = (from record in records
                         select new string[]
                         {
-                                record.FirstName,
-                                record.LastName,
+                                record.FirstName+" "+record.LastName,
                                 record.DateOfBirth.ToShortDateString(),
                                 record.Gender.ToString(),
                                 record.Designation,
                                 record.Department,
                                 record.JoinDate.ToShortDateString(),
                                 record.CurrentSalary.ToString(),
-                                record.PaymentType.ToString(),
                                 record.NextReviewDate.ToShortDateString(),
                                 record.Id.ToString()
                         }

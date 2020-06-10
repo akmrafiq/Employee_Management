@@ -7,7 +7,12 @@
 {
     @await Html.PartialAsync("_Notification", Model.Notification)
 }
+@section styles
+{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+}
 <div class="container-fluid">
     <div class="row">
         <!-- left column -->
@@ -15,13 +20,13 @@
             <!-- general form elements -->
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Edit a Employee</h3>
+                    <h3 class="card-title">Edit Employee</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
                 <form role="form" action="~/admin/parmanentemployee/edit" method="post">
                     @Html.AntiForgeryToken()
-                    <input type="hidden" value="@Model.Id" name="Id" />
+                    <input type="hidden" value="@Model.Id" name="Id"/>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="fName">First Name</label>
@@ -33,11 +38,11 @@
                         </div>
                         <div class="form-group">
                             <label for="DOB">Date Of Birth</label>
-                            <input type="text" class="form-control" name="DateOfBirth" id="DOB" value="@Model.DateOfBirth">
+                            <input type="datetime" class="form-control datePicker" name="DateOfBirth" id="DOB" value="@Model.DateOfBirth">
                         </div>
                         <div class="form-group">
                             <label for="eGender">Gender</label>
-                            <input type="text" class="form-control" name="Gender" id="eGender" value="@Model.Gender">
+                            <input type="text" readonly class="form-control" name="Gender" id="eGender" value="@Model.Gender">
                         </div>
                         <div class="form-group">
                             <label for="eDesignation">Designation</label>
@@ -49,7 +54,7 @@
                         </div>
                         <div class="form-group">
                             <label for="eJoinDate">Join Date</label>
-                            <input type="text" class="form-control" name="JoinDate" id="eJoinDate" value="@Model.JoinDate">
+                            <input type="datetime" class="form-control datePicker" name="JoinDate" id="eJoinDate" value="@Model.JoinDate">
                         </div>
                         <div class="form-group">
                             <label for="eCurrentSalary">Current Salary</label>
@@ -58,7 +63,7 @@
 
                         <div class="form-group">
                             <label for="eNextReviewDate">Next Review Date</label>
-                            <input type="text" class="form-control" name="NextReviewDate" id="eNextReviewDate" value="@Model.NextReviewDate">
+                            <input type="datetime" class="form-control datePicker" name="NextReviewDate" id="eNextReviewDate" value="@Model.NextReviewDate">
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -74,4 +79,10 @@
         <!--/.col (left) -->
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $(".datePicker").datepicker();
+    });
+</script>

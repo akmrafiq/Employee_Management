@@ -6,6 +6,7 @@ using Employee_Management.Core.Services;
 using Employee_Management.Web.Areas.Admin.Models;
 using Employee_Management.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using static Employee_Management.Core.Entities.Enamurations;
 
 namespace Employee_Management.Web.Areas.Admin.Controllers
 {
@@ -26,6 +27,7 @@ namespace Employee_Management.Web.Areas.Admin.Controllers
         public IActionResult Add()
         {
             var model = new ParmanentEmployeeUpdateModel();
+            ViewBag.Gender = Enum.GetNames(typeof(Gender));
             return View(model);
         }
 
@@ -37,6 +39,7 @@ namespace Employee_Management.Web.Areas.Admin.Controllers
             {
                 model.AddNewParmanentEmployee();
             }
+            ViewBag.Gender = Enum.GetNames(typeof(Gender));
             return View(model);
         }
 
@@ -44,6 +47,7 @@ namespace Employee_Management.Web.Areas.Admin.Controllers
         {
             var model = new ParmanentEmployeeUpdateModel();
             model.Load(id);
+            ViewBag.Gender = Enum.GetNames(typeof(Gender));
             return View(model);
         }
 
@@ -55,6 +59,7 @@ namespace Employee_Management.Web.Areas.Admin.Controllers
             {
                 model.EditParmanentEmployee();
             }
+            ViewBag.Gender = Enum.GetNames(typeof(Gender));
             return View(model);
         }
 
@@ -64,7 +69,7 @@ namespace Employee_Management.Web.Areas.Admin.Controllers
         {
             var model = new ParmanentEmployeeViewModel();
             model.Delete(id);
-            return LocalRedirect("Index");
+            return LocalRedirect("/Admin/ParmanentEmployee/Index");
         }
 
         public IActionResult GetParmanentEmployee()

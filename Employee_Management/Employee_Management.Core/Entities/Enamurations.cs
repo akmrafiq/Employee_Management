@@ -14,7 +14,7 @@ namespace Employee_Management.Core.Entities
 
         public enum PaymentType
         {
-            BankTransfer,
+            BankTransfer=1,
             Cheque
         }
     }
