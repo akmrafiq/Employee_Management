@@ -63,6 +63,12 @@ namespace Employee_Management.Web.Areas.Admin.Controllers
             return View(model);
         }
 
+        public IActionResult Details(int id)
+        {
+            var employee = _parmanentEmployeeService.GetParmanentEmployee(id);
+            return View(employee);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete(int id)
