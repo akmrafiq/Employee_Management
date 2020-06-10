@@ -1,0 +1,36 @@
+﻿@model Employee_Management.Core.Entities.ParmanenetEmployee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h3 align="center" class="text-bold">Employee Details</h3>
+
+<div class="container">
+    <div class="row mx-lg-n5">
+        <div class="col py-3 px-lg-5 border bg-light">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="fab fa-accusoft"></i>
+                    Employee information
+                </h3>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li> <h5>First Name : @Model.FirstName</h5> </li>
+                    <li><h5>Last Name : @Model.LastName</h5></li>
+                    <li><h5>Date of Birth : @Model.DateOfBirth</h5></li>
+                    <li><h5>Gender : @Model.Gender</h5></li>
+                    <li><h5>Designation : @Model.Designation</h5></li>
+                    <li><h5>Department: @Model.Department</h5></li>
+                    <li><h5>Join Date: @Model.JoinDate</h5></li>
+                    <li><h5>Current Salary : @Model.CurrentSalary</h5></li>
+                    <li><h5>Payment Type: @Model.PaymentType</h5></li>
+                    <li><h5>Next Review Date: @Model.NextReviewDate</h5></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>

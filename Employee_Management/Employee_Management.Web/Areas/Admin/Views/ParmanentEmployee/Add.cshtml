@@ -1,0 +1,95 @@
+﻿@model Employee_Management.Web.Areas.Admin.Models.ParmanentEmployeeUpdateModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+@section notification
+{
+    @await Html.PartialAsync("_Notification", Model.Notification)
+}
+@section styles
+{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="~/css/bootstrap.css" rel="stylesheet" />
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Add Employee</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form role="form" action="~/admin/parmanentemployee/add" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="fName">First Name</label>
+                            <input type="text" class="form-control" name="FirstName" id="fName" placeholder="Enter first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lName">Last Name</label>
+                            <input type="text" class="form-control" name="LastName" id="lName" placeholder="Enter Last name">
+                        </div>
+                        <div class="form-group">
+                            <label for="DOB">Date Of Birth</label>
+                            <input type="datetime" class="form-control datePicker" name="DateOfBirth" id="DOB" placeholder="Enter Date of birth">
+                        </div>
+                        <div class="form-group">
+                            <label for="eGender">Gender</label>
+                            <select id="eGender" name="Gender" class="form-control form-control-sm" style="width: 100%;">
+                                @foreach (var item in ViewBag.Gender)
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eDesignation">Designation</label>
+                            <input type="text" class="form-control" name="Designation" id="eDesignation" placeholder="Enter Designation">
+                        </div>
+                        <div class="form-group">
+                            <label for="eDepartment">Department</label>
+                            <input type="text" class="form-control" name="Department" id="eDepartment" placeholder="Enter Department">
+                        </div>
+                        <div class="form-group">
+                            <label for="eJoinDate">Join Date</label>
+                            <input type="datetime" class="form-control datePicker" name="JoinDate" id="eJoinDate" placeholder="Enter join date">
+                        </div>
+                        <div class="form-group">
+                            <label for="eCurrentSalary">Current Salary</label>
+                            <input type="text" class="form-control" name="CurrentSalary" id="eCurrentSalary" placeholder="Enter Current salary">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eNextReviewDate">Next Review Date</label>
+                            <input type="datetime" class="form-control datePicker" name="NextReviewDate" id="eNextReviewDate" placeholder="Enetr next review date">
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card -->
+
+        </div>
+        <!--/.col (left) -->
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $(".datePicker").datepicker();
+    });
+</script>
+
